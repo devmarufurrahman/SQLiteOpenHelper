@@ -79,4 +79,10 @@ public class SqLiteOpenHelper extends SQLiteOpenHelper {
 
         database.update(TABLE_CONTACT,cv,KEY_ID+" = "+ contactModel.id,null);
     }
+
+
+    public  void DeleteContacts(int id){
+        SQLiteDatabase  database = this.getWritableDatabase();
+        database.delete(TABLE_CONTACT,KEY_ID + " = ? ", new String[]{String.valueOf(id)});
+    }
 }
